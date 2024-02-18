@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+
+<!-- Section: Design Block -->
+<section class=" text-center text-lg-start">
+    <style>
+      .rounded-t-5 {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+      }
+  
+      @media (min-width: 992px) {
+        .rounded-tr-lg-0 {
+          border-top-right-radius: 0;
+        }
+  
+        .rounded-bl-lg-5 {
+          border-bottom-left-radius: 0.5rem;
+        }
+      }
+    </style>
+    <div class="card mb-3">
+      <div class="row g-0 d-flex align-items-center">
+        <div class="col-lg-4 d-none d-lg-flex">
+          <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+            class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+        </div>
+        <div class="col-lg-4">
+          <div class="card-body py-5 px-md-5">
+            <form method="POST" class="hero-text2" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h2>Kaydol</h2>
+    
+                <div class="mb-3">
+                    <input value="{{ fname }}" type="text" name="fname" class="{% if not fname %} border border-3 border-danger {% endif %} form-control form-control-lg my-2" placeholder="Ad">
+                    <input value="{{ lname }}" type="text" name="lname" class="{% if not lname %} border border-3 border-danger {% endif %} form-control form-control-lg my-2" placeholder="Soyad">
+                    <input value="{{ email }}" type="text" name="email" class="{% if not email %} border border-3 border-danger {% endif %} form-control form-control-lg my-2" placeholder="Email">
+                    <input value="{{ username }}" type="text" name="username" class="{% if not username %} border border-3 border-danger {% endif %} form-control form-control-lg my-2" placeholder="Kullanıcı Adı">
+                    <input value="{{ gizlisoru }}" type="text" name="gizlisoru" class="{% if not gizlisoru %} border border-3 border-danger {% endif %} form-control form-control-lg my-2" placeholder="gizlisoru">
+                    <input required type="password" name="password1" class="form-control form-control-lg my-2" placeholder="Şifre">
+                    <input required type="password" name="password2" class="form-control form-control-lg my-2" placeholder="Tekrar Şifre">
+                    <input type="file" class="form-control my-2" name="image" id="" value="resim ekle">
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-danger btn-lg" type="submit" name="submit" value="ProfileCreate">Kayıt Ol</button>
+                </div>
+    
+                <div class="form-check text-start my-3">
+                    <input type="checkbox" required name="check-site" id="check-site" class="form-check-input">
+                    <label for="check-site" class="form-check-label">
+                        Site kullanım kurallarını okudum onaylıyorum.
+                    </label><br>
+                    <input type="checkbox" required name="check-kvkk" id="check-kvkk" class="form-check-input">
+                    <label for="check-kvkk" class="form-check-label">
+                        Site içi kvkk kurallarını okudum onaylıyorum.
+                    </label>
+                </div>
+    
+                <p class="p-grey">
+                    Zaten bir hesabım var. <a href="{% url 'loginPage' %}">Giriş yap</a> <br><br>
+                </p>
+            </form>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+    
+{% endblock body %}
+
+
+    
+    
+    
+
+
+
+    

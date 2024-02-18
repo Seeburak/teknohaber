@@ -1,0 +1,47 @@
+{% load static %}
+
+<div class="nav-bar">
+   <div class="container">
+       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+           <a href="#" class="navbar-brand">MENU</a>
+           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+
+
+           <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+
+              <img src="{% static 'img/logo.jpg' %}" height="50" alt="" >
+
+              
+              <div class="navbar-nav mr-auto">
+                   <a href="/" class="nav-item nav-link active">Anasayfa</a>
+                   <div class="nav-item dropdown">
+                       <a href="/" class="nav-link dropdown-toggle" data-toggle="dropdown">Kategori</a>
+                       <div class="dropdown-menu">
+                           
+                           {% for i in kategoriler %}
+                               <a href="/category/{{ i.id }}" class="dropdown-item text-danger">{{ i.baslik }}</a>
+                           {% endfor %}
+
+                       </div>
+                   </div>
+                   <!-- <a href="/detay" class="nav-item nav-link">Detay</a> -->
+                   <a href="/iletisim" class="nav-item nav-link">Bize ulaşın</a>
+                   <a href="/" class="nav-item nav-link">|</a>
+                   
+                   
+                   {% for i in aktifuye %}
+                       <a href="/hesap" class="nav-item nav-link">HESAP AYARLARINIZ /  id:{{i.id}} / {{i.username}}</a>               
+                   {% endfor %}
+                   {% if aktifuye|length < 1 %}
+                   <a href="/login" class="nav-item nav-link">GİRİŞ YAP</a>
+                   {% endif %}
+                 
+                    
+               </div>
+
+           </div>
+       </nav>
+   </div>
+</div>

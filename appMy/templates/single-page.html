@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+    
+
+<!-- Single News Start-->
+<div class="single-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="sn-container">
+                    <div class="sn-img">
+                        <img src="{{haberust1_list.image.url}}" />
+                    </div>
+                    <div class="sn-content">
+                        <h1 class="sn-title">{{ haberust1_list.title }}</h1>
+                        <p>
+                            {{ haberust1_list.text|linebreaks }}
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <h3>Yorumlar</h3>
+                        {% for i in comment_list %}
+                        <div class="card p-3 shadow-2-strong">
+                            <div class="card-title">{{ i.fullname }}</div>
+                            <div class="card-text">{{ i.text }}</div>
+                            <div class="text-muted">{{ i.date_now }}</div>
+                        </div>    
+                        {% endfor %}
+                        <div class="card-title"><br><h3>Yorum Yap</h3></div>
+                        <form method="post">
+                        {% csrf_token %}
+                        
+                        {% for i in aktifuye %}
+                                                                       
+                        <input name="fullname" class="form-control my-1" type="hidden" placeholder="{{ i.username }}" value="{{ i.username }}">
+                        {% endfor %}
+                        <textarea name="comment" class="form-control my-1" cols="30" rows="10" placeholder="Yorumunuz"></textarea>
+                        <button class="btn btn-outline-success" type="submit">Paylaş</button>
+                        </form>
+                        
+                    </div>
+                </div>
+
+            </div>
+   
+
+        </div>
+    </div>
+</div>
+<!-- Single News End-->        
+{% endblock body %}
+    
+
+  

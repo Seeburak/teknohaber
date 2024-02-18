@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+
+<!-- Section: Design Block -->
+<section class=" text-center text-lg-start">
+    <style>
+      .rounded-t-5 {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+      }
+  
+      @media (min-width: 992px) {
+        .rounded-tr-lg-0 {
+          border-top-right-radius: 0;
+        }
+  
+        .rounded-bl-lg-5 {
+          border-bottom-left-radius: 0.5rem;
+        }
+      }
+    </style>
+    <div class="card mb-3">
+     
+      
+      <div class="row g-0 d-flex align-items-center">
+        <div class="col-lg-4 d-none d-lg-flex">
+    
+            {% for i in resimgetir %}
+            <div>
+                <div>
+                    Profil Resminiz 
+                </div>
+                <div>
+                    <img src="{{ i.image.url }}" class="w-100 rounded-t-5 rounded-tr-lg rounded-bl-lg-5" />
+                </div>
+            </div>
+          </div>
+            {% endfor %}
+            
+            <div class="col-lg-4">
+          <div class="card-body py-5 px-md-5">
+            <form method="POST" class="hero-text2" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h2>HESAP AYARLARINIZ</h2>
+                  
+    
+            {% for i in  aktifuye %}
+
+            <div class="mb-4">
+               Ad Soyad <input value="{{ i.first_name }}" type="text" name="fname" class="form-control form-control-lg my-2" placeholder="Ad" disabled>
+                <input value="{{ i.last_name }}" type="text" name="lname" class="form-control form-control-lg my-2" placeholder="Soyad" disabled>
+               E Mail <input value="{{ i.email }}" type="text" name="email" class="form-control form-control-lg my-2" placeholder="Email" disabled>
+                Kullanıcı adı - Şifre<input value="{{ i.username }}" type="text" name="username" class="form-control form-control-lg my-2" placeholder="Kullanıcı Adı" disabled>
+                <input required type="password" name="password1" class="form-control form-control-lg my-2" placeholder="Şifre:{{ i.password }}" disabled>
+            </div>
+            <div class="d-grid gap-2">
+                <a href="/guncelle"><button class="btn btn-danger text-success btn-lg" type="button"> BİLGİ GÜNCELLE</button></a>
+                <button class="btn text-danger btn-lg" type="submit" name="submit" value="ProfileLogout">ÇIKIŞ YAP</button>
+            </div>
+            {% endfor %}
+            </form>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+    
+{% endblock body %}
+
+
+    
+    
+    
+
+
+
+    

@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+    
+<!-- Top News Start-->
+<div class="top-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 tn-left">
+                <div class="row tn-slider">
+                
+                    {% for i in haberust1_slider %}
+                    <div class="col-md-6">
+                        <div class="tn-img">
+                                <img src="{{i.image.url}}" />
+                            <div class="tn-title">
+                                <a href="/detay/{{ i.id }}">{{ i.title }}</a>
+                            </div>
+                        </div>
+                    </div>                
+                    {% endfor %}
+                    
+                </div>
+            </div>
+            
+            
+            <div class="col-md-6 tn-right">
+                <div class="row">
+
+                    {% for i in haberust1_sag %}
+                    <div class="col-md-6">
+                        <div class="tn-img">
+
+                                <img src="{{i.image.url}}" alt="">
+
+                            <div class="tn-title">
+                                <a href="/detay/{{ i.id }}">{{ i.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top News End-->
+
+<!-- Category News Start-->
+<div class="cat-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Spor</h2>
+                <div class="row cn-slider">
+                    
+                        
+                    {% for i in haberust1_spor %}
+                        
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{{i.image.url}}" />
+                            <div class="cn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                                       
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Sinema</h2>
+                <div class="row cn-slider">
+                    
+                    {% for i in haberust1_sinema %}
+                        
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{{i.image.url}}" />
+                            <div class="cn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                        
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Category News End-->
+
+<!-- Category News Start-->
+<div class="cat-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Oyun</h2>
+                <div class="row cn-slider">
+                    
+                    {% for i in haberust1_oyun %}
+                        
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{{i.image.url}}" />
+                            <div class="cn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                        
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Mobil</h2>
+                <div class="row cn-slider">
+                    
+                    {% for i in haberust1_mobil %}
+                        
+                    <div class="col-md-6">
+                        <div class="cn-img">
+                            <img src="{{i.image.url}}" />
+                            <div class="cn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                        
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Category News End-->
+
+<!-- Tab News Start-->
+<div class="tab-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#featured">Spor Haberleri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#popular">Sinema Haberleri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#latest">Oyun Haberleri</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="featured" class="container tab-pane active">
+                        
+                        {% for i in haberust1_spor %}                          
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{{i.image.url}}" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                            
+
+                    </div>
+                    <div id="popular" class="container tab-pane fade">
+                        
+                        {% for i in haberust1_sinema %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{{i.image.url}}" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>                            
+                        {% endfor %}
+                            
+
+                    </div>
+                    <div id="latest" class="container tab-pane fade">
+                        
+                        {% for i in haberust1_oyun %}
+                            
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{{i.image.url}}" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <ul class="nav nav-pills nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="pill" href="#m-viewed">Mobil Telefonlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#m-read">Yapay Zeka</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#m-recent">Donanım Haberleri</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="m-viewed" class="container tab-pane active">
+                        
+                        {% for i in haberust1_mobil %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{{i.image.url}}" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                            
+                        {% endfor %}
+                            
+
+                    </div>
+                    <div id="m-read" class="container tab-pane fade">
+                        
+                        {% for i in haberust1_yz %}
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{{i.image.url}}" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                            
+                        {% endfor %}
+
+                    </div>
+                    <div id="m-recent" class="container tab-pane fade">
+                        
+                        {% for i in haberust1_donanim %}
+                            
+                        <div class="tn-news">
+                            <div class="tn-img">
+                                <img src="{{i.image.url}}" />
+                            </div>
+                            <div class="tn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Tab News Start-->
+
+<!-- Main News Start-->
+<div class="main-news">
+    <div class="container">
+        <h2>Karışık Haberler</h2>
+        <div class="row">
+            <div class="col-lg-15">
+                <div class="row">
+                    
+                    {% for i in haberust1_manset %}
+                    <div class="col-md-4">
+                        <div class="mn-img">
+                            <img src="{{i.image.url}}" />
+                            <div class="mn-title">
+                                <a href="/detay/{{ i.id }}">{{i.title}}</a>
+                            </div>
+                        </div>
+                    </div>                        
+                    {% endfor %}
+                        
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Main News End-->
+
+{% endblock body %}
+    
+
+
